@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aveline - Creaciones Tejidas</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header class="fade-in-up">
+        <div class="header-container">
+            <h1>Aveline</h1>
+            <nav class="desktop-menu">
+                <ul>
+                    <li><a href="#productos">Productos</a></li>
+                    <li><a href="#nosotros">Nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="header-buttons">
+                <a href="#contacto" class="btn btn-outline">HACER PEDIDO</a>
+                <a href="#productos" class="btn btn-primary">VER CATÁLOGO</a>
+            </div>
+            <button id="hamburger-btn" class="hamburger">&#9776;</button>
+        </div>
+    </header>
+    
+    <nav id="hamburger-menu" class="hamburger-menu">
+        <ul>
+            <li><a href="#productos">Productos</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+   
+        </ul>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2 class="fade-in-up">Creaciones artesanales <br>con amor y dedicación</h2>
+                <p class="fade-in-up">Productos tejidos a mano, flores y muñecos creados con las mejores técnicas y materiales, diseñados para llevar alegría y belleza a tu hogar.</p>
+                <a href="#productos" class="btn btn-primary fade-in-up">VER CATÁLOGO</a>
+            </div>
+            <div class="hero-image fade-in-up">
+                <img src="productos_imagen/istockphoto-1285292884-612x612-removebg-preview.png" alt="Conejo tejido con zanahoria">
+            </div>
+        </section>
+
+        <section id="productos" class="products">
+            <h2 class="fade-in-up">Nuestros Productos</h2>
+            <div class="productos-grid">
+                <!-- Los productos ya tienen las clases necesarias gracias al JS -->
+                <!-- Producto 1 -->
+                <div class="producto">
+                    <img src="" alt="Conejo Tejido">
+                    <div class="producto-info">
+                        <h3>Conejo Tejido</h3>
+                        <p class="precio">$25.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Conejo Tejido">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 2 -->
+                <div class="producto">
+                    <img src="assets/images/perrito.jpg" alt="Perrito Amigurumi">
+                    <div class="producto-info">
+                        <h3>Perrito Amigurumi</h3>
+                        <p class="precio">$22.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Perrito Amigurumi">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 3 -->
+                <div class="producto">
+                    <img src="assets/images/osito.jpg" alt="Osito de Peluche">
+                    <div class="producto-info">
+                        <h3>Osito de Peluche</h3>
+                        <p class="precio">$18.50</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Osito de Peluche">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 4 -->
+                <div class="producto">
+                    <img src="assets/images/flores1.jpg" alt="Ramo de Flores">
+                    <div class="producto-info">
+                        <h3>Ramo de Flores</h3>
+                        <p class="precio">$30.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Ramo de Flores">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 5 -->
+                <div class="producto">
+                    <img src="assets/images/cactus.jpg" alt="Cactus Tejido">
+                    <div class="producto-info">
+                        <h3>Cactus Tejido</h3>
+                        <p class="precio">$15.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Cactus Tejido">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 6 -->
+                <div class="producto">
+                    <img src="assets/images/gorro.jpg" alt="Gorro de Invierno">
+                    <div class="producto-info">
+                        <h3>Gorro de Invierno</h3>
+                        <p class="precio">$12.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Gorro de Invierno">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 7 -->
+                <div class="producto">
+                    <img src="assets/images/bufanda.jpg" alt="Bufanda Tejida">
+                    <div class="producto-info">
+                        <h3>Bufanda Tejida</h3>
+                        <p class="precio">$18.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Bufanda Tejida">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 8 -->
+                <div class="producto">
+                    <img src="assets/images/unicornio.jpg" alt="Unicornio Tejido">
+                    <div class="producto-info">
+                        <h3>Unicornio Tejido</h3>
+                        <p class="precio">$27.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Unicornio Tejido">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 9 -->
+                <div class="producto">
+                    <img src="assets/images/tortuga.jpg" alt="Tortuga Amigurumi">
+                    <div class="producto-info">
+                        <h3>Tortuga Amigurumi</h3>
+                        <p class="precio">$21.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Tortuga Amigurumi">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 10 -->
+                <div class="producto">
+                    <img src="assets/images/flores2.jpg" alt="Centro de Mesa Floral">
+                    <div class="producto-info">
+                        <h3>Centro de Mesa Floral</h3>
+                        <p class="precio">$35.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Centro de Mesa Floral">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 11 -->
+                <div class="producto">
+                    <img src="assets/images/manta.jpg" alt="Manta Pequeña">
+                    <div class="producto-info">
+                        <h3>Manta Pequeña</h3>
+                        <p class="precio">$40.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Manta Pequeña">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 12 -->
+                <div class="producto">
+                    <img src="assets/images/pulsera.jpg" alt="Pulsera Tejida">
+                    <div class="producto-info">
+                        <h3>Pulsera Tejida</h3>
+                        <p class="precio">$8.50</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Pulsera Tejida">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 13 -->
+                <div class="producto">
+                    <img src="assets/images/dino.jpg" alt="Dinosaurio Tejido">
+                    <div class="producto-info">
+                        <h3>Dinosaurio Tejido</h3>
+                        <p class="precio">$23.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Dinosaurio Tejido">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 14 -->
+                <div class="producto">
+                    <img src="assets/images/monedero.jpg" alt="Monedero Tejido">
+                    <div class="producto-info">
+                        <h3>Monedero Tejido</h3>
+                        <p class="precio">$10.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Monedero Tejido">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 15 -->
+                <div class="producto">
+                    <img src="assets/images/llavero.jpg" alt="Llavero Amigurumi">
+                    <div class="producto-info">
+                        <h3>Llavero Amigurumi</h3>
+                        <p class="precio">$7.50</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Llavero Amigurumi">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 16 -->
+                <div class="producto">
+                    <img src="assets/images/corona.jpg" alt="Corona de Flores">
+                    <div class="producto-info">
+                        <h3>Corona de Flores</h3>
+                        <p class="precio">$28.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Corona de Flores">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 17 -->
+                <div class="producto">
+                    <img src="assets/images/portacelular.jpg" alt="Porta Celular">
+                    <div class="producto-info">
+                        <h3>Porta Celular</h3>
+                        <p class="precio">$14.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Porta Celular">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 18 -->
+                <div class="producto">
+                    <img src="assets/images/calcetines.jpg" alt="Calcetines Tejidos">
+                    <div class="producto-info">
+                        <h3>Calcetines Tejidos</h3>
+                        <p class="precio">$16.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Calcetines Tejidos">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 19 -->
+                <div class="producto">
+                    <img src="assets/images/amigurumi.jpg" alt="Amigurumi Personalizado">
+                    <div class="producto-info">
+                        <h3>Amigurumi Personalizado</h3>
+                        <p class="precio">$32.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Amigurumi Personalizado">Comprar</button>
+                    </div>
+                </div>
+                
+                <!-- Producto 20 -->
+                <div class="producto">
+                    <img src="assets/images/maceta.jpg" alt="Maceta Tejida">
+                    <div class="producto-info">
+                        <h3>Maceta Tejida</h3>
+                        <p class="precio">$19.00</p>
+                        <button class="btn btn-primary btn-comprar" data-producto="Maceta Tejida">Comprar</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="fade-in-up">
+        <p>&copy; 2025 Aveline. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

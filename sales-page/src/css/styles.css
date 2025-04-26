@@ -1,0 +1,322 @@
+:root {
+    --color-primary: #850e35;
+    --color-secondary: #ee6983;
+    --color-accent: #ffc4c4;
+    --color-background: #fff5e4;
+    --color-text: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    color: var(--color-text);
+    background-color: var(--color-background);
+}
+
+/* Header styles */
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primary);
+    margin: 0;
+}
+
+.desktop-menu {
+    display: none;
+}
+
+.desktop-menu ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+.desktop-menu a {
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+}
+
+.header-buttons {
+    display: none;
+}
+
+.btn {
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline {
+    border: 1px solid var(--color-primary);
+    color: var(--color-primary);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+/* Hamburger menu */
+.hamburger {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    cursor: pointer;
+}
+
+.hamburger-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: var(--color-primary);
+    padding-top: 5rem;
+    transition: left 0.3s ease;
+    z-index: 999;
+}
+
+.hamburger-menu ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 0 2rem;
+}
+
+.hamburger-menu li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block;
+}
+
+.hamburger-menu.open {
+    left: 0;
+}
+
+/* Hero section */
+.hero {
+    display: flex;
+    flex-direction: column;
+    padding: 7rem 5% 3rem;
+    margin-top: 2rem;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.hero p {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.hero-image {
+    flex: 1;
+    margin-top: 2rem;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+/* Products section */
+.products {
+    padding: 3rem 5%;
+}
+
+.products h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    font-family: 'Playfair Display', serif;
+    color: var(--color-primary);
+}
+
+.productos-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Estilos para las tarjetas de producto */
+.producto {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.producto:hover {
+    transform: translateY(-5px);
+}
+
+.producto img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.producto-info {
+    padding: 1rem;
+}
+
+.producto h3 {
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+}
+
+.precio {
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 1rem;
+}
+
+.btn-comprar {
+    width: 100%;
+    padding: 0.6rem;
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.btn-comprar:hover {
+    background-color: var(--color-secondary);
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-primary);
+    color: white;
+    text-align: center;
+    padding: 2rem 5%;
+    margin-top: auto;
+}
+
+/* Animaciones */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.animate {
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+/* Retrasos de animación para elementos secuenciales */
+.delay-1 {
+    animation-delay: 0.1s;
+}
+
+.delay-2 {
+    animation-delay: 0.2s;
+}
+
+.delay-3 {
+    animation-delay: 0.3s;
+}
+
+.delay-4 {
+    animation-delay: 0.4s;
+}
+
+/* Aplicar animación a grupos específicos */
+.productos-grid .producto {
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+/* Resto del CSS existente... */
+
+/* Media queries */
+@media (min-width: 768px) {
+    .hamburger {
+        display: none;
+    }
+    
+    .desktop-menu {
+        display: block;
+    }
+    
+    .header-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+    
+    .hero {
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+        padding: 7rem 5%;
+    }
+    
+    .hero-image {
+        margin-top: 0;
+    }
+    
+    .productos-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .productos-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .hero h2 {
+        font-size: 3rem;
+    }
+}
