@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const precio = this.closest('.producto-info').querySelector('.precio').textContent;
             
             // Reemplaza este número con tu número de WhatsApp real (formato internacional sin el +)
-            const numeroWhatsApp = '3006493668';
+            const numeroWhatsApp = '3022477957';
             
             // Crea el mensaje predefinido para WhatsApp
             const mensaje = `Hola, me interesa comprar el producto: ${nombreProducto} por ${precio}`;
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
         enlace.addEventListener('click', function(event) {
             event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
             
-            const numeroWhatsApp = '3006493668';
+            const numeroWhatsApp = '3022477957';
             const mensaje = "Hola, estoy interesado/a en sus productos y me gustaría hacer un pedido.";
             
             const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
