@@ -122,6 +122,29 @@ header h1 {
     left: 0;
 }
 
+/* Estilos para botones en el menú hamburguesa */
+.hamburger-menu .menu-button {
+    margin-top: 1rem;
+}
+
+.hamburger-menu .menu-button a {
+    display: inline-block;
+    text-align: center;
+    width: 100%;
+    padding: 0.8rem 1rem;
+}
+
+.hamburger-menu .btn-outline {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+
+.hamburger-menu .btn-primary {
+    background-color: white;
+    color: var(--color-primary);
+}
+
 /* Hero section */
 .hero {
     display: flex;
