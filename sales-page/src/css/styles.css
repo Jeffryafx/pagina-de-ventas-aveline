@@ -174,7 +174,7 @@ html, body {
 
 /* Header */
 .header {
-    padding-top: 8rem;
+    padding-top: 150px !important; /* Aumentado desde 120px */
     background: linear-gradient(var(--color-primary), var(--color-secondary));
 }
 
@@ -183,7 +183,7 @@ html, body {
 }
 
 .header .text-container {
-    margin-bottom: 3rem;
+    margin-top: -3rem;
 }
 
 .header h1 {
@@ -760,7 +760,7 @@ html, body {
 
 /* Ajusta el padding-top para compensar el header fijo */
 .header {
-    padding-top: 120px;
+    padding-top: 150px !important; /* Aumentado desde 120px */
 }
 
 /* Estilos de Features Item para productos */
