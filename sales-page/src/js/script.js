@@ -12,7 +12,24 @@ window.addEventListener('load', function() {
     }
 });
 
+// Inicializar el carrusel cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar el carrusel
+    const headerCarousel = document.getElementById('header-carousel');
+    if (headerCarousel) {
+        // Configurar el carrusel de Bootstrap con auto-deslizamiento
+        const carousel = new bootstrap.Carousel(headerCarousel, {
+            interval: 4000,  // Tiempo entre slides (4 segundos)
+            wrap: true,      // Vuelve al principio cuando termina
+            keyboard: true,  // Permite navegación con teclado
+            pause: false,    // No pausar en hover para asegurar deslizamiento continuo
+            ride: 'carousel' // Inicia automáticamente
+        });
+        
+        // Añadir la clase carousel-fade para el efecto de transición
+        headerCarousel.classList.add('carousel-fade');
+    }
+    
     // Handle all navigation links, not just catalog buttons
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     
@@ -204,4 +221,24 @@ document.querySelectorAll('.btn-solid-lg[href^="#"], .fixed-btn[href^="#"]').for
         }
     });
 });
+
+// Manejar botones de compra
+document.querySelectorAll('.btn-comprar').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        const producto = this.getAttribute('data-producto');
+        const precio = this.parentElement.querySelector('.precio').textContent;
+        
+        document.getElementById('productoNombre').textContent = producto;
+        document.getElementById('productoPrecio').textContent = precio;
+        
+        const mensaje = encodeURIComponent(`Hola, me interesa comprar: ${producto} - ${precio}`);
+        document.getElementById('whatsappLink').href = `https://wa.me/573006493668?text=${mensaje}`;
+        
+        const modal = new bootstrap.Modal(document.getElementById('compraModal'));
+        modal.show();
+    });
+});
+
+
 
