@@ -856,3 +856,326 @@ html, body {
     background-color: var(--color-secondary);
     color: white;
 }
+
+/* Mejoras de responsividad general */
+/* Añade estas reglas al final de tu CSS */
+
+/* Base responsiva mejorada */
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Grid responsivo mejorado */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col-xs-12, .col-sm-12, .col-md-6, .col-md-4, .col-lg-6, .col-lg-4, .col-lg-12 {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+/* XS (Mobile) */
+.col-xs-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+/* Header responsivo */
+.header {
+    background-attachment: scroll !important;
+}
+
+.header .image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Preloader con transición suave */
+#preloader {
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+/* Mejoras para Header Area en todos los dispositivos */
+.header-area {
+    transition: all 0.4s ease;
+}
+
+/* Estilos mejorados de menú móvil */
+@media (max-width: 991px) {
+    /* Centrar logo y menú hamburguesa a la derecha */
+    .header-area .main-nav {
+        position: relative;
+        justify-content: center;
+        padding: 0 15px;
+    }
+    
+    .header-area .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .header-area .menu-trigger {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        display: flex !important;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        z-index: 5;
+    }
+    
+    /* Estilos mejorados para el menú desplegable */
+    .header-area .nav {
+        display: none;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-primary);
+        z-index: 999;
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+        max-height: calc(100vh - 80px);
+        overflow-y: auto;
+        transition: all 0.3s ease;
+    }
+    
+    .header-area .nav.active {
+        display: block;
+    }
+    
+    .header-area .nav li {
+        width: 100%;
+        padding: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .header-area .nav li a {
+        padding: 15px 20px;
+        display: block;
+        text-align: left;
+    }
+    
+    /* Mejora para submenús en móvil */
+    .header-area .nav li.submenu ul {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.15);
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        transform: none;
+    }
+    
+    .header-area .nav li.submenu.active ul {
+        display: block;
+    }
+    
+    .header-area .nav li.submenu ul li a {
+        padding-left: 40px;
+    }
+    
+    /* Añadir flecha indicadora para submenús en móvil */
+    .header-area .nav li.submenu > a::after {
+        content: '\f107';
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 900;
+        position: absolute;
+        right: 20px;
+        transition: transform 0.3s ease;
+    }
+    
+    .header-area .nav li.submenu.active > a::after {
+        transform: rotate(180deg);
+    }
+    
+    /* Mover las secciones para compensar el header en móvil */
+    .section {
+        padding-top: 100px;
+        padding-bottom: 50px;
+    }
+    
+    /* Ajustes de header para móvil */
+    .header {
+        padding-top: 100px;
+        text-align: center;
+    }
+    
+    .header h1 {
+        font-size: 2rem;
+    }
+    
+    .header .p-large {
+        font-size: 1rem;
+    }
+    
+    /* Ajustes para botones en móvil */
+    .btn-solid-lg {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    /* Categorías en scroll horizontal para móvil */
+    .categorias {
+        display: flex;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none; /* Firefox */
+    }
+    
+    .categorias::-webkit-scrollbar {
+        display: none; /* Chrome, Safari, Opera */
+    }
+    
+    .categoria-btn {
+        flex: 0 0 auto;
+        white-space: nowrap;
+        margin-right: 10px;
+    }
+    
+    /* Productos a una columna en móvil */
+    .col-lg-4, .col-md-6 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+    
+    .features-item {
+        margin-bottom: 30px;
+    }
+    
+    /* Footer centrado en móvil */
+    .footer-col {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .footer .list-unstyled li {
+        justify-content: center;
+    }
+}
+
+/* Tablets / dispositivos medianos */
+@media (min-width: 576px) and (max-width: 991px) {
+    .header h1 {
+        font-size: 2.5rem;
+    }
+    
+    /* 2 productos por fila en tablets */
+    .col-sm-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    /* Ajustes para productos en tablet */
+    .features-icon img {
+        width: 120px;
+        height: 120px;
+    }
+}
+
+/* Ajustes para dispositivos más pequeños (teléfonos) */
+@media (max-width: 575px) {
+    .container {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .header-content {
+        padding-bottom: 2rem;
+    }
+    
+    .features-icon h2 {
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 18px;
+    }
+    
+    .features-icon img {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .fixed-buttons {
+        bottom: 10px;
+        right: 10px;
+    }
+    
+    .fixed-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+    }
+    
+    /* Ajustar header frame en móviles */
+    .header-frame {
+        height: auto;
+        margin-top: -5px;
+    }
+}
+
+/* Transición para productos al filtrar */
+.producto {
+    transition: opacity 0.3s ease, transform 0.4s ease;
+}
+
+.producto.hidden {
+    display: none;
+    opacity: 0;
+}
+
+/* Media queries para orientaciones específicas */
+@media (orientation: landscape) and (max-width: 767px) {
+    .header {
+        padding-top: 90px;
+    }
+    
+    .header-content {
+        padding-bottom: 1.5rem;
+    }
+    
+    .header .image-container img {
+        max-height: 180px;
+        width: auto;
+    }
+}
+
+/* Mejoras específicas para productos en distintos tamaños de pantalla */
+@media (min-width: 992px) {
+    .col-lg-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+    
+    .col-lg-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .col-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+    
+    .col-md-4 {
+        flex: 0 0 33.333333%;
+        max-width: 33.333333%;
+    }
+}
