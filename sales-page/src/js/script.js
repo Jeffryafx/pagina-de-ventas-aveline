@@ -205,3 +205,111 @@ document.addEventListener('DOMContentLoaded', function() {
     `;
     document.head.appendChild(style);
 });
+
+// Mejoras adicionales para responsividad
+document.addEventListener('DOMContentLoaded', function() {
+    // Fix para el 100vh en iOS
+    const appHeight = () => {
+        const doc = document.documentElement;
+        doc.style.setProperty('--app-height', `${window.innerHeight}px`);
+    };
+    window.addEventListener('resize', appHeight);
+    appHeight();
+    
+    // Prevenir que el body se desplace cuando el menú está abierto
+    const menuTrigger = document.querySelector('.menu-trigger');
+    if (menuTrigger) {
+        menuTrigger.addEventListener('click', function() {
+            if (this.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        });
+    }
+    
+    // Cerrar menú al cambiar orientación
+    window.addEventListener('orientationchange', function() {
+        const nav = document.querySelector('.header-area .nav');
+        const menuTrigger = document.querySelector('.menu-trigger');
+        
+        if (nav && menuTrigger) {
+            nav.classList.remove('active');
+            menuTrigger.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // Activar animación de scroll para productos
+    const productos = document.querySelectorAll('.producto');
+    if ('IntersectionObserver' in window) {
+        const productObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    productObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        productos.forEach(producto => {
+            productObserver.observe(producto);
+            producto.classList.add('animate-on-scroll');
+        });
+    } else {
+        // Fallback para navegadores que no soportan IntersectionObserver
+        productos.forEach(producto => {
+            producto.classList.add('visible');
+        });
+    }
+    
+    // Agregar estilos inline para la animación de scroll
+    const style = document.createElement('style');
+    style.textContent = `
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    `;
+    document.head.appendChild(style);
+});
+
+// Corregir función para el botón "VER CATÁLOGO"
+document.addEventListener('DOMContentLoaded', function() {
+    // Usar un selector más específico y buscar también los botones fijos
+    const catalogButtons = document.querySelectorAll('a[href="#productos"]');
+    
+    catalogButtons.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Botón catálogo clickeado'); // Para debug
+            
+            const productosSection = document.getElementById('productos');
+            
+            if (productosSection) {
+                // Calcular posición con mayor precisión
+                const navbar = document.querySelector('.navbar') || document.querySelector('.header-area');
+                const navHeight = navbar ? navbar.offsetHeight : 70; // Valor por defecto si no encuentra la navbar
+                
+                console.log('Altura de navbar:', navHeight); // Para debug
+                
+                // Agregar un poco más de espacio para mejor visualización
+                const yOffset = -navHeight - 20;
+                const y = productosSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                
+                // Usar requestAnimationFrame para un scroll más suave
+                requestAnimationFrame(() => {
+                    window.scrollTo({
+                        top: y,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+        });
+    });
+});
