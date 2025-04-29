@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
     <meta name="theme-color" content="#850e35">
     <title>Aveline - Creaciones Tejidas</title>
     
@@ -11,9 +12,10 @@
     <meta name="author" content="Aveline">
 
     <!-- Styles -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/custom.css">
 </head>
 <body data-spy="scroll" data-target=".fixed-top">
     
@@ -29,68 +31,66 @@
 
 <!-- Header Area Start -->
 <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- Logo Start -->
-                    <a href="index.html" class="logo">
-                        Aveline
-                    </a>
-                    <!-- Logo End -->
-                    <!-- Menu Start -->
-                    <ul class="nav">
-                        <li class="scroll-to-section"><a href="#header" class="active">Inicio</a></li>
-                        <li class="scroll-to-section"><a href="#productos">Productos</a></li>
-                        <li class="submenu">
-                            <a href="javascript:;">Categorías <i class="fas fa-angle-down"></i></a>
-                            <ul>
-                                <li><a href="#productos" class="categoria-link" data-categoria="muñecos">Muñecos</a></li>
-                                <li><a href="#productos" class="categoria-link" data-categoria="flores">Flores</a></li>
-                                <li><a href="#productos" class="categoria-link" data-categoria="macetas">Macetas</a></li>
-                                <li><a href="#productos" class="categoria-link" data-categoria="accesorios">Accesorios</a></li>
-                            </ul>
-                        </li>
-                        <li class="scroll-to-section"><a href="#contacto">Contacto</a></li>
-                    </ul>
-                    <a class="menu-trigger">
-    <span class="hamburger-icon">
-        <span></span>
-        <span></span>
-        <span></span>
-    </span>
-</a>
-                    <!-- Menu End -->
-                </nav>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
+            <a class="navbar-brand logo" href="index.html">Aveline</a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#header">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Categorías
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item categoria-link" href="#productos" data-categoria="muñecos">Muñecos</a></li>
+                            <li><a class="dropdown-item categoria-link" href="#productos" data-categoria="flores">Flores</a></li>
+                            <li><a class="dropdown-item categoria-link" href="#productos" data-categoria="macetas">Macetas</a></li>
+                            <li><a class="dropdown-item categoria-link" href="#productos" data-categoria="accesorios">Accesorios</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
             </div>
         </div>
-    </div>
+    </nav>
 </header>
 <!-- Header Area End -->
 
     <!-- Header -->
     <header id="header" class="header">
-        <div class="header-content">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="text-container">
-                            <h1>Creaciones artesanales <br>con amor y dedicación</h1>
-                            <p class="p-large">Nuestros productos, elaborados a mano, destacan por su calidad y patrones únicos, gracias a la combinación de lo contemporáneo con la tradición artesanal.</p>
-                            <a class="btn-solid-lg" href="#productos">VER CATÁLOGO</a>
-                        </div>
+    <div class="header-content">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                    <div class="text-container">
+                        <h1>Creaciones artesanales <br>con amor y dedicación</h1>
+                        <p class="p-large">Nuestros productos, elaborados a mano, destacan por su calidad y patrones únicos, gracias a la combinación de lo contemporáneo con la tradición artesanal.</p>
+                        <a class="btn-solid-lg" href="#productos">VER CATÁLOGO</a>
                     </div>
-                    <div class="col-lg-6">
-                        <div class="image-container">
-                            <div class="img-wrapper">
-                                <img class="img-fluid" src="productos_imagen/istockphoto-1285292884-612x612-removebg-preview.png" alt="Conejo tejido con zanahoria">
-                            </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="image-container d-flex justify-content-center">
+                        <div class="img-wrapper">
+                            <img class="img-fluid" src="productos_imagen/istockphoto-1285292884-612x612-removebg-preview.png" alt="Conejo tejido con zanahoria">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
     <svg class="header-frame" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none" viewBox="0 0 1920 310" style="margin-top: -2px;">
         <path fill="var(--color-secondary)" d="M0,283.054c22.75,12.98,53.1,15.2,70.635,14.808,92.115-2.077,238.3-79.9,354.895-79.938,59.97-.019,106.17,18.059,141.58,34,47.778,21.511,47.778,21.511,90,38.938,28.418,11.731,85.344,26.169,152.992,17.971,68.127-8.255,115.933-34.963,166.492-67.393,37.467-24.032,148.6-112.008,171.753-127.963,27.951-19.26,87.771-81.155,180.71-89.341,72.016-6.343,105.479,12.388,157.434,35.467,69.73,30.976,168.93,92.28,256.514,89.405,100.992-3.315,140.276-41.7,177-64.9V0.24H0V283.054Z"/>
     </svg>
@@ -99,25 +99,24 @@
     <section class="section" id="productos">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
+            <div class="col-12 text-center mb-4">
                 <h2 class="h2-heading">Nuestros Productos</h2>
             </div>
         </div>
         
         <!-- Categorías -->
-        <div class="categorias">
-            <button class="categoria-btn active" data-categoria="todos">Todos</button>
-            <button class="categoria-btn" data-categoria="muñecos">Muñecos</button>
-            <button class="categoria-btn" data-categoria="flores">Flores</button>
-            <button class="categoria-btn" data-categoria="macetas">Macetas</button>
-            <button class="categoria-btn" data-categoria="accesorios">Accesorios</button>
+        <div class="categorias d-flex flex-wrap justify-content-center">
+            <button class="categoria-btn active me-2 mb-2" data-categoria="todos">Todos</button>
+            <button class="categoria-btn me-2 mb-2" data-categoria="muñecos">Muñecos</button>
+            <button class="categoria-btn me-2 mb-2" data-categoria="flores">Flores</button>
+            <button class="categoria-btn me-2 mb-2" data-categoria="macetas">Macetas</button>
+            <button class="categoria-btn me-2 mb-2" data-categoria="accesorios">Accesorios</button>
         </div>
         
         <div class="row">
             <!-- Producto 1 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 producto muñecos" 
-                data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                <div class="features-item">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 producto muñecos">
+                <div class="features-item h-100">
                     <div class="features-icon">
                         <h2>01</h2>
                         <img src="productos_imagen/istockphoto-1285292884-612x612-removebg-preview.png" alt="Conejo Tejido">
@@ -131,9 +130,8 @@
             </div>
             
             <!-- Producto 2 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 producto muñecos"
-                data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
-                <div class="features-item">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 producto muñecos">
+                <div class="features-item h-100">
                     <div class="features-icon">
                         <h2>02</h2>
                         <img src="assets/images/perrito.jpg" alt="Perrito Amigurumi">
@@ -147,9 +145,8 @@
             </div>
             
             <!-- Producto 3 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 producto muñecos"
-                data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                <div class="features-item">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 producto muñecos">
+                <div class="features-item h-100">
                     <div class="features-icon">
                         <h2>03</h2>
                         <img src="assets/images/osito.jpg" alt="Osito de Peluche">
@@ -163,9 +160,8 @@
             </div>
             
             <!-- Producto 4 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 producto flores"
-                data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
-                <div class="features-item">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 producto flores">
+                <div class="features-item h-100">
                     <div class="features-icon">
                         <h2>04</h2>
                         <img src="productos_imagen/istockphoto-1285292884-612x612-removebg-preview.png" alt="Flores Tejidas">
@@ -179,9 +175,8 @@
             </div>
             
             <!-- Producto 5 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 producto macetas"
-                data-scroll-reveal="enter bottom move 30px over 0.6s after 0.4s">
-                <div class="features-item">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 producto macetas">
+                <div class="features-item h-100">
                     <div class="features-icon">
                         <h2>05</h2>
                         <img src="productos_imagen/istockphoto-1285292884-612x612-removebg-preview.png" alt="Maceta Decorativa">
@@ -195,9 +190,8 @@
             </div>
             
             <!-- Producto 6 -->
-            <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 producto accesorios"
-                data-scroll-reveal="enter right move 30px over 0.6s after 0.4s">
-                <div class="features-item">
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4 producto accesorios">
+                <div class="features-item h-100">
                     <div class="features-icon">
                         <h2>06</h2>
                         <img src="productos_imagen/istockphoto-1285292884-612x612-removebg-preview.png" alt="Accesorio Tejido">
@@ -221,42 +215,42 @@
     <div class="footer">
         <div class="container">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-col first">
                         <h4>Sobre Aveline</h4>
                         <p class="p-small">Creamos productos tejidos a mano con amor y dedicación para llevar belleza y alegría a tu hogar.</p>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <div class="footer-col middle">
                         <h4>Enlaces Importantes</h4>
-                        <ul class="list-unstyled li-space-lg p-small">
-                            <li class="media">
-                                <i class="fas fa-square"></i>
-                                <div class="media-body"><a href="#productos">Nuestros Productos</a></div>
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="fas fa-square me-2"></i>
+                                <div><a href="#productos">Nuestros Productos</a></div>
                             </li>
-                            <li class="media">
-                                <i class="fas fa-square"></i>
-                                <div class="media-body"><a href="#contacto">Hacer un Pedido</a></div>
+                            <li class="d-flex align-items-center">
+                                <i class="fas fa-square me-2"></i>
+                                <div><a href="#contacto">Hacer un Pedido</a></div>
                             </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-6">
                     <div class="footer-col last">
                         <h4>Contacto</h4>
-                        <ul class="list-unstyled li-space-lg p-small">
-                            <li class="media">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div class="media-body">Bogotá, Colombia</div>
+                        <ul class="list-unstyled">
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="fas fa-map-marker-alt me-2"></i>
+                                <div>Bogotá, Colombia</div>
                             </li>
-                            <li class="media">
-                                <i class="fas fa-envelope"></i>
-                                <div class="media-body"><a href="mailto:contacto@aveline.com">contacto@aveline.com</a></div>
+                            <li class="d-flex align-items-center mb-2">
+                                <i class="fas fa-envelope me-2"></i>
+                                <div><a href="mailto:contacto@aveline.com">contacto@aveline.com</a></div>
                             </li>
-                            <li class="media">
-                                <i class="fas fa-phone"></i>
-                                <div class="media-body"><a href="tel:+573006493668">+57 300 649 3668</a></div>
+                            <li class="d-flex align-items-center">
+                                <i class="fas fa-phone me-2"></i>
+                                <div><a href="tel:+573006493668">+57 300 649 3668</a></div>
                             </li>
                         </ul>
                     </div> 
@@ -286,6 +280,7 @@
         </a>
     </div>
 
-    <script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/script.js"></script>
 </body>
 </html>
