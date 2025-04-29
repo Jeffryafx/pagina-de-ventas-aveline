@@ -13,54 +13,54 @@ window.addEventListener('load', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Manejar específicamente los botones de catálogo
-    const catalogButtons = document.querySelectorAll('a[href="#productos"]');
+    // Handle all navigation links, not just catalog buttons
+    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     
-    catalogButtons.forEach(button => {
-        // Single handler for both platforms
-        button.addEventListener('click', function(e) {
-            e.preventDefault();
-            scrollToProductos();
-        });
-    });
-    
-    // Función para desplazarse a la sección de productos
-    function scrollToProductos() {
-        // Asegurar que el body permite desplazamiento
-        document.body.style.overflow = '';
-        
-        // Encontrar la sección de productos
-        const productosSection = document.getElementById('productos');
-        
-        if (productosSection) {
-            // Calcular la altura de la navegación
-            const navbar = document.querySelector('.navbar');
-            const navHeight = navbar ? navbar.offsetHeight : 70;
-            const yOffset = -navHeight - 20;
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            // Get the target section ID
+            const targetId = this.getAttribute('href');
             
-            // Calcular la posición correcta
-            const rect = productosSection.getBoundingClientRect();
-            const y = rect.top + window.pageYOffset + yOffset;
-            
-            // Desplazamiento suave usando requestAnimationFrame
-            window.scrollTo({
-                top: y,
-                behavior: 'smooth'
-            });
-            
-            // Cerrar el menú móvil si está abierto
-            if (window.innerWidth < 992) {
-                const navbarCollapse = document.querySelector('.navbar-collapse');
-                const navbarToggler = document.querySelector('.navbar-toggler');
+            // Only handle anchor links
+            if (targetId.startsWith('#')) {
+                e.preventDefault();
                 
-                if (navbarCollapse && navbarCollapse.classList.contains('show') && navbarToggler) {
+                // Find target element
+                const targetElement = document.getElementById(targetId.substring(1));
+                
+                if (targetElement) {
+                    // First close the mobile menu if open
+                    const navbarCollapse = document.querySelector('.navbar-collapse.show');
+                    if (navbarCollapse && window.innerWidth < 992) {
+                        const bsCollapse = bootstrap.Collapse.getInstance(navbarCollapse);
+                        if (bsCollapse) {
+                            bsCollapse.hide();
+                        } else {
+                            // Fallback if Bootstrap instance isn't available
+                            navbarCollapse.classList.remove('show');
+                        }
+                    }
+                    
+                    // Give time for menu to close before scrolling
                     setTimeout(() => {
-                        navbarToggler.click();
-                    }, 100);
+                        // Calculate position
+                        const navbar = document.querySelector('.navbar');
+                        const navHeight = navbar ? navbar.offsetHeight : 70;
+                        const yOffset = -navHeight - 20;
+                        
+                        const y = targetElement.getBoundingClientRect().top + 
+                                 window.pageYOffset + yOffset;
+                        
+                        // Scroll to element
+                        window.scrollTo({
+                            top: y,
+                            behavior: 'smooth'
+                        });
+                    }, 300);
                 }
             }
-        }
-    }
+        });
+    });
     
     // ----- FILTRADO DE CATEGORÍAS DE PRODUCTOS -----
     const categoriaBotones = document.querySelectorAll('.categoria-btn');
