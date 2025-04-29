@@ -1,103 +1,93 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Menú hamburguesa (código existente)
-    const hamburgerBtn = document.getElementById('hamburger-btn');
-    const hamburgerMenu = document.getElementById('hamburger-menu');
-
-    hamburgerBtn.addEventListener('click', () => {
-        hamburgerMenu.classList.toggle('open');
-    });
-
-    // Cerrar menú al hacer clic fuera
-    document.addEventListener('click', (event) => {
-        if (!hamburgerBtn.contains(event.target) && !hamburgerMenu.contains(event.target)) {
-            hamburgerMenu.classList.remove('open');
-        }
-    });
-
-    // Funcionalidad de los botones de compra con redirección a WhatsApp
-    const botonesComprar = document.querySelectorAll('.btn-comprar');
-    
-    botonesComprar.forEach(boton => {
-        boton.addEventListener('click', function() {
-            const nombreProducto = this.getAttribute('data-producto');
-            const precio = this.closest('.producto-info').querySelector('.precio').textContent;
-            
-            // Reemplaza este número con tu número de WhatsApp real (formato internacional sin el +)
-            const numeroWhatsApp = '3022477957';
-            
-            // Crea el mensaje predefinido para WhatsApp
-            const mensaje = `Hola, me interesa comprar el producto: ${nombreProducto} por ${precio}`;
-            
-            // Crea la URL de WhatsApp y redirige
-            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-            window.open(urlWhatsApp, '_blank');
-        });
-    });
-
-    // Funcionalidad para los enlaces de contacto y hacer pedido
-    const enlacesContacto = document.querySelectorAll('a[href="#contacto"]');
-    
-    enlacesContacto.forEach(enlace => {
-        enlace.addEventListener('click', function(event) {
-            event.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
-            
-            const numeroWhatsApp = '3022477957';
-            const mensaje = "Hola, estoy interesado/a en sus productos y me gustaría hacer un pedido.";
-            
-            const urlWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-            window.open(urlWhatsApp, '_blank');
-        });
-    });
-
-    // Animaciones de entrada
-    function animateOnLoad() {
-        // Animación del header
-        document.querySelector('header').classList.add('animate');
-        
-        // Animación del hero
-        const heroContent = document.querySelector('.hero-content');
-        heroContent.querySelectorAll('h2, p, .btn').forEach((element, index) => {
-            element.classList.add('fade-in-up');
-            element.classList.add('animate', `delay-${index + 1}`);
-        });
-        
-        // Animación de la imagen del hero
-        const heroImage = document.querySelector('.hero-image');
-        heroImage.classList.add('fade-in-up', 'animate', 'delay-3');
-        
-        // Iniciar la observación para los productos
-        observeElements();
+// Ocultar el preloader cuando la página esté completamente cargada
+window.addEventListener('load', function() {
+    const preloader = document.getElementById('preloader');
+    if (preloader) {
+        setTimeout(function() {
+            preloader.style.opacity = '0';
+            preloader.style.visibility = 'hidden';
+            setTimeout(function() {
+                preloader.style.display = 'none';
+            }, 500);
+        }, 800);
     }
+});
 
-    // Función para observar elementos y animarlos cuando son visibles
-    function observeElements() {
+// El resto de tu código existente...
+// Script para ScrollReveal
+document.addEventListener('DOMContentLoaded', function() {
+    // Función simple para animar elementos con data-scroll-reveal
+    function initScrollReveal() {
+        const elements = document.querySelectorAll('[data-scroll-reveal]');
+        
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    if (entry.target.classList.contains('productos-grid')) {
-                        // Animar los productos secuencialmente
-                        const productos = entry.target.querySelectorAll('.producto');
-                        productos.forEach((producto, index) => {
-                            setTimeout(() => {
-                                producto.classList.add('animate');
-                            }, index * 100); // 100ms de retraso entre cada producto
-                        });
-                    } else {
-                        entry.target.classList.add('animate');
-                    }
-                    // Dejar de observar una vez que está animado
+                    entry.target.classList.add('revealed');
                     observer.unobserve(entry.target);
                 }
             });
         }, {
-            threshold: 0.1 // Trigger cuando al menos el 10% del elemento es visible
+            threshold: 0.2
         });
         
-        // Observar título de sección y grid de productos
-        observer.observe(document.querySelector('.products h2'));
-        observer.observe(document.querySelector('.productos-grid'));
+        elements.forEach(element => {
+            // Aplicar estilos iniciales
+            element.style.opacity = '0';
+            element.style.transition = 'all 0.6s ease-in-out';
+            
+            // Determinar el tipo de animación basado en el atributo
+            const attr = element.getAttribute('data-scroll-reveal');
+            if (attr.includes('left')) {
+                element.style.transform = 'translateX(-30px)';
+            } else if (attr.includes('right')) {
+                element.style.transform = 'translateX(30px)';
+            } else if (attr.includes('bottom')) {
+                element.style.transform = 'translateY(30px)';
+            } else if (attr.includes('top')) {
+                element.style.transform = 'translateY(-30px)';
+            }
+            
+            observer.observe(element);
+        });
+        
+        // CSS para elementos revelados
+        const style = document.createElement('style');
+        style.textContent = `
+            [data-scroll-reveal].revealed {
+                opacity: 1 !important;
+                transform: translate(0, 0) !important;
+            }
+        `;
+        document.head.appendChild(style);
     }
+    
+    // Modificar el código del filtro de categorías para el nuevo formato
+    const categoriaBotones = document.querySelectorAll('.categoria-btn');
+    
+    categoriaBotones.forEach(boton => {
+        boton.addEventListener('click', () => {
+            // Remover la clase active de todos los botones
+            categoriaBotones.forEach(btn => btn.classList.remove('active'));
+            // Agregar la clase active al botón seleccionado
+            boton.classList.add('active');
 
-    // Ejecutar animaciones después de que la página ha cargado
-    window.addEventListener('load', animateOnLoad);
+            const categoria = boton.getAttribute('data-categoria');
+            const productos = document.querySelectorAll('.producto');
+
+            productos.forEach(producto => {
+                if (categoria === 'todos') {
+                    producto.classList.remove('hidden');
+                } else {
+                    if (producto.classList.contains(categoria)) {
+                        producto.classList.remove('hidden');
+                    } else {
+                        producto.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    });
+    
+    // Iniciar animaciones cuando el DOM está listo
+    initScrollReveal();
 });
