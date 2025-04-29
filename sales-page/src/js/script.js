@@ -17,47 +17,50 @@ document.addEventListener('DOMContentLoaded', function() {
     const catalogButtons = document.querySelectorAll('a[href="#productos"]');
     
     catalogButtons.forEach(button => {
-        ['click', 'touchend'].forEach(eventType => {
-            button.addEventListener(eventType, function(e) {
-                e.preventDefault(); // Detener la navegación por defecto
-                
-                // Asegurar que el body permita desplazamiento
-                document.body.style.overflow = '';
-                
-                // Encontrar la sección de productos
-                const productosSection = document.getElementById('productos');
-                
-                if (productosSection) {
-                    // Calcular la altura de la navegación
-                    const navbar = document.querySelector('.navbar');
-                    const navHeight = navbar ? navbar.offsetHeight : 70;
-                    const yOffset = -navHeight - 20;
-                    
-                    // Calcular la posición correcta
-                    const y = productosSection.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                    
-                    // Desplazamiento suave usando requestAnimationFrame para mejor rendimiento
-                    requestAnimationFrame(() => {
-                        window.scrollTo({
-                            top: y,
-                            behavior: 'smooth'
-                        });
-                    });
-                    
-                    // Cerrar el menú móvil si está abierto
-                    const navbarCollapse = document.querySelector('.navbar-collapse');
-                    if (window.innerWidth < 992 && navbarCollapse && navbarCollapse.classList.contains('show')) {
-                        const navbarToggler = document.querySelector('.navbar-toggler');
-                        if (navbarToggler) {
-                            setTimeout(() => {
-                                navbarToggler.click();
-                            }, 100);
-                        }
-                    }
-                }
-            });
+        // Single handler for both platforms
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            scrollToProductos();
         });
     });
+    
+    // Función para desplazarse a la sección de productos
+    function scrollToProductos() {
+        // Asegurar que el body permite desplazamiento
+        document.body.style.overflow = '';
+        
+        // Encontrar la sección de productos
+        const productosSection = document.getElementById('productos');
+        
+        if (productosSection) {
+            // Calcular la altura de la navegación
+            const navbar = document.querySelector('.navbar');
+            const navHeight = navbar ? navbar.offsetHeight : 70;
+            const yOffset = -navHeight - 20;
+            
+            // Calcular la posición correcta
+            const rect = productosSection.getBoundingClientRect();
+            const y = rect.top + window.pageYOffset + yOffset;
+            
+            // Desplazamiento suave usando requestAnimationFrame
+            window.scrollTo({
+                top: y,
+                behavior: 'smooth'
+            });
+            
+            // Cerrar el menú móvil si está abierto
+            if (window.innerWidth < 992) {
+                const navbarCollapse = document.querySelector('.navbar-collapse');
+                const navbarToggler = document.querySelector('.navbar-toggler');
+                
+                if (navbarCollapse && navbarCollapse.classList.contains('show') && navbarToggler) {
+                    setTimeout(() => {
+                        navbarToggler.click();
+                    }, 100);
+                }
+            }
+        }
+    }
     
     // ----- FILTRADO DE CATEGORÍAS DE PRODUCTOS -----
     const categoriaBotones = document.querySelectorAll('.categoria-btn');
@@ -169,3 +172,4 @@ document.addEventListener('DOMContentLoaded', function() {
     window.addEventListener('resize', appHeight);
     appHeight();
 });
+
