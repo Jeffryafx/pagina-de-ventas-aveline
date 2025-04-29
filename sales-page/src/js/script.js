@@ -173,3 +173,35 @@ document.addEventListener('DOMContentLoaded', function() {
     appHeight();
 });
 
+// Modificar la función de desplazamiento para mejorar experiencia en móvil
+document.querySelectorAll('.btn-solid-lg[href^="#"], .fixed-btn[href^="#"]').forEach(button => {
+    button.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Obtener el ID del elemento destino
+        const targetId = this.getAttribute('href');
+        const targetElement = document.getElementById(targetId.substring(1));
+        
+        if (targetElement) {
+            // En móvil hacer scroll con más offset para mejor visualización
+            const isMobile = window.innerWidth < 768;
+            const navbar = document.querySelector('.navbar');
+            const navHeight = navbar ? navbar.offsetHeight : 70;
+            
+            // Añadir offset adicional en móviles
+            const extraOffset = isMobile ? 50 : 20;
+            const yOffset = -navHeight - extraOffset;
+            
+            // Calcular posición
+            const y = targetElement.getBoundingClientRect().top + 
+                     window.pageYOffset + yOffset;
+            
+            // Hacer scroll con animación
+            window.scrollTo({
+                top: y,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
