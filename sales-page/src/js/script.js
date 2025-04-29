@@ -146,3 +146,62 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// Funcionalidad para filtrar productos por categoría
+document.addEventListener('DOMContentLoaded', function() {
+    const categoriaBotones = document.querySelectorAll('.categoria-btn');
+    const productos = document.querySelectorAll('.producto');
+    
+    // Asignar evento clic a los botones de categoría
+    categoriaBotones.forEach(boton => {
+        boton.addEventListener('click', function() {
+            // Eliminar la clase active de todos los botones
+            categoriaBotones.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Añadir la clase active al botón clickeado
+            this.classList.add('active');
+            
+            // Obtener la categoría seleccionada
+            const categoria = this.getAttribute('data-categoria');
+            
+            // Filtrar los productos según la categoría
+            productos.forEach(producto => {
+                if (categoria === 'todos') {
+                    producto.classList.remove('hidden');
+                    // Añadir animación al mostrar
+                    setTimeout(() => {
+                        producto.style.opacity = '1';
+                    }, 10);
+                } else {
+                    if (producto.classList.contains(categoria)) {
+                        producto.classList.remove('hidden');
+                        // Añadir animación al mostrar
+                        setTimeout(() => {
+                            producto.style.opacity = '1';
+                        }, 10);
+                    } else {
+                        // Ocultar con animación
+                        producto.style.opacity = '0';
+                        setTimeout(() => {
+                            producto.classList.add('hidden');
+                        }, 300);
+                    }
+                }
+            });
+        });
+    });
+    
+    // También necesitamos añadir CSS para la transición
+    const style = document.createElement('style');
+    style.textContent = `
+        .producto {
+            transition: opacity 0.3s ease;
+        }
+        .producto.hidden {
+            display: none;
+        }
+    `;
+    document.head.appendChild(style);
+});
