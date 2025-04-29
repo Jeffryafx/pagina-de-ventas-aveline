@@ -158,3 +158,28 @@
 .navbar-dark .navbar-nav .nav-link {
     font-weight: 500;
 }
+
+/* Añadir espacio adicional para mejorar la navegación en móvil */
+@media (max-width: 767px) {
+    /* Aumentar el espacio entre header y sección de productos */
+    #productos {
+        padding-top: 120px; /* Aumentamos el padding superior */
+        margin-top: 50px; /* Añadimos margen adicional */
+    }
+    
+    /* Mejorar la visibilidad del scroll */
+    .btn-solid-lg, .nav-link {
+        scroll-margin-top: 100px;
+    }
+    
+    /* Asegurar que el header tenga suficiente altura en móvil */
+    .header {
+        min-height: 100vh; /* Altura mínima de toda la pantalla */
+    }
+    
+    /* Mejor posicionamiento de la imagen */
+    .header .image-container {
+        margin-top: 20px;
+        margin-bottom: 40px;
+    }
+}
