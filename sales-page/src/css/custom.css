@@ -83,3 +83,78 @@
         text-align: center;
     }
 }
+
+/* Arreglo para el logo y menú hamburguesa */
+@media (max-width: 991px) {
+    /* Mejor posicionamiento del logo Aveline */
+    .navbar-brand.logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        z-index: 1030;
+    }
+
+    /* Mejora para el botón hamburguesa */
+    .navbar-toggler {
+        padding: 4px 10px;
+        border: 0;
+        outline: none !important;
+        box-shadow: none !important;
+        position: relative;
+        z-index: 1031;
+    }
+
+    /* Alinear correctamente el menú desplegable */
+    .navbar-collapse {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background-color: var(--color-primary);
+        z-index: 1029;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        padding: 0;
+    }
+    
+    /* Evitar elementos superpuestos */
+    .navbar {
+        position: relative;
+        justify-content: flex-start !important;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    /* Alinear correctamente los elementos del menú */
+    .navbar-nav {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    
+    .navbar-nav .nav-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 12px 20px;
+    }
+}
+
+/* Eliminar estilos antiguos que causan conflictos */
+.header-area .menu-trigger,
+.hamburger-icon {
+    display: none !important;
+}
+
+/* Ajuste para el dropdown de Bootstrap */
+.dropdown-menu {
+    margin-top: 0;
+    border: 0;
+    border-radius: 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Mejorar legibilidad del texto */
+.navbar-dark .navbar-nav .nav-link {
+    font-weight: 500;
+}
