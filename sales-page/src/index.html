@@ -45,21 +45,21 @@
                         <a class="nav-link active" href="#header">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#productos">Productos</a>
+                        <a class="nav-link" href="#productos" onclick="document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });">Productos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
                             Categorías
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item categoria-link" href="#productos" data-categoria="muñecos">Muñecos</a></li>
-                            <li><a class="dropdown-item categoria-link" href="#productos" data-categoria="flores">Flores</a></li>
-                            <li><a class="dropdown-item categoria-link" href="#productos" data-categoria="macetas">Macetas</a></li>
-                            <li><a class="dropdown-item categoria-link" href="#productos" data-categoria="accesorios">Accesorios</a></li>
+                            <li><a class="dropdown-item categoria-link" href="#productos" onclick="document.querySelector('.categoria-btn[data-categoria=\'muñecos\']').scrollIntoView({ behavior: 'smooth' }); document.querySelector('.categoria-btn[data-categoria=\'muñecos\']').click();">Muñecos</a></li>
+                            <li><a class="dropdown-item categoria-link" href="#productos" onclick="document.querySelector('.categoria-btn[data-categoria=\'flores\']').scrollIntoView({ behavior: 'smooth' }); document.querySelector('.categoria-btn[data-categoria=\'flores\']').click();">Flores</a></li>
+                            <li><a class="dropdown-item categoria-link" href="#productos" onclick="document.querySelector('.categoria-btn[data-categoria=\'macetas\']').scrollIntoView({ behavior: 'smooth' }); document.querySelector('.categoria-btn[data-categoria=\'macetas\']').click();">Macetas</a></li>
+                            <li><a class="dropdown-item categoria-link" href="#productos" onclick="document.querySelector('.categoria-btn[data-categoria=\'accesorios\']').scrollIntoView({ behavior: 'smooth' }); document.querySelector('.categoria-btn[data-categoria=\'accesorios\']').click();">Accesorios</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#contacto">Contacto</a>
+                        <a class="nav-link" href="#contacto" >Contacto</a>
                     </li>
                 </ul>
             </div>
@@ -77,7 +77,8 @@
                     <div class="text-container">
                         <h1>Creaciones artesanales <br>con amor y dedicación</h1>
                         <p class="p-large">Nuestros productos, elaborados a mano, destacan por su calidad y patrones únicos, gracias a la combinación de lo contemporáneo con la tradición artesanal.</p>
-                        <a class="btn-solid-lg" href="#productos">VER CATÁLOGO</a>
+                        <a class="btn-solid-lg" href="#productos" onclick="document.getElementById('productos').scrollIntoView({ behavior: 'smooth' });">VER CATÁLOGO</a>
+
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-12">
