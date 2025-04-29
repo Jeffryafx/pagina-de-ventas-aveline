@@ -1179,3 +1179,81 @@ html, body {
         max-width: 33.333333%;
     }
 }
+
+/* Corrección para el logo visible */
+.header-area .logo {
+    position: relative;
+    z-index: 101;
+    display: inline-block;
+    margin-top: 5px; /* Añadir un pequeño espacio arriba */
+}
+
+@media (max-width: 991px) {
+    /* Ajuste para el logo en dispositivos móviles */
+    .header-area .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 50%; /* Centrar verticalmente */
+        margin-top: -14px; /* Compensación para centrado perfecto (mitad del tamaño de fuente) */
+    }
+    
+    /* Asegurarnos de que el área del header tenga suficiente espacio */
+    .header-area .main-nav {
+        min-height: 80px;
+        padding: 15px;
+    }
+    
+    /* Ajustar z-index para asegurar visibilidad */
+    .header-area {
+        z-index: 9999;
+    }
+}
+/* Mejoras para el menú hamburguesa en móvil */
+@media (max-width: 991px) {
+    /* Añadir más espacio para los items del menú */
+    .navbar-nav .nav-item {
+        padding: 0;
+        margin: 0;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 15px 20px;
+        font-size: 16px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Mejor visualización del desplegable */
+    .dropdown-toggle::after {
+        margin-left: 8px;
+    }
+    
+    /* Mejorar apariencia del dropdown */
+    .dropdown-menu {
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+    
+    .dropdown-item {
+        padding: 15px 35px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    /* Animación suave al abrir el menú */
+    .navbar-collapse {
+        transition: all 0.3s ease;
+    }
+    
+    /* Separación entre el header y el menú */
+    .navbar-collapse.show {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    /* Asegurar que el menú ocupe todo el ancho */
+    #navbarMain {
+        margin-top: 15px;
+    }
+}
