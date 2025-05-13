@@ -1,6 +1,6 @@
 /* Variables y reset */
 :root {
-    --color-primary: #850e35;
+    --color-primary: #ce4d78;
     --color-secondary: #ee6983;
     --color-accent: #ffc4c4;
     --color-background: #fff5e4;
@@ -21,22 +21,6 @@ html, body {
 }
 
 /* Grid simplificado */
-.container {
-    width: 100%;
-    max-width: 1140px;
-    margin-right: auto;
-    margin-left: auto;
-    padding-right: 15px;
-    padding-left: 15px;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-right: -15px;
-    margin-left: -15px;
-}
-
 .col-lg-6, .col-md-4, .col-lg-12 {
     position: relative;
     width: 100%;
@@ -44,85 +28,6 @@ html, body {
     padding-left: 15px;
 }
 
-/* Navbar */
-.navbar {
-    background-color: var(--color-primary);
-    
-    z-index: 1030;
-    transition: all 0.3s ease;
-}
-
-.navbar-custom {
-    padding: 1rem 2rem;
-    background-color: var(--color-primary);
-}
-
-.navbar-brand {
-    display: inline-block;
-    padding-top: 0.3125rem;
-    padding-bottom: 0.3125rem;
-    margin-right: 1rem;
-    font-size: 1.25rem;
-    line-height: inherit;
-    white-space: nowrap;
-}
-
-.logo-text {
-    color: #ffffff;
-    font-family: 'Playfair Display', serif;
-    font-size: 2rem;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-.navbar-toggler {
-    color: white;
-    border: none;
-    background-color: transparent;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-.navbar-toggler-awesome {
-    display: inline-block;
-}
-
-.navbar-toggler .fa-times {
-    display: none;
-}
-
-.navbar-toggler.active .fa-bars {
-    display: none;
-}
-
-.navbar-toggler.active .fa-times {
-    display: inline-block;
-}
-
-.navbar-nav {
-    display: flex;
-    list-style: none;
-    padding: 0;
-    margin: -30px;  
-    
-
-}
-
-.nav-item {
-    margin-left: 1rem;
-}
-
-.nav-link {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    
-}
-
-.nav-link:hover {
-    color: var(--color-accent);
-}
 
 .btn-outline-sm {
     display: inline-block;
@@ -137,39 +42,6 @@ html, body {
 .btn-outline-sm:hover {
     background-color: white;
     color: var(--color-primary);
-}
-
-/* Hamburger Menu */
-.hamburger-menu {
-    position: fixed;
-    top: 78px;
-    left: -300px;
-    width: 300px;
-    height: 100%;
-    background-color: var(--color-primary);
-    padding-top: 2rem;
-    transition: left 0.3s ease;
-    z-index: 999;
-}
-
-.hamburger-menu.open {
-    left: 0;
-}
-
-.hamburger-menu ul {
-    list-style: none;
-    padding: 0 1rem;
-}
-
-.hamburger-menu li {
-    margin-bottom: 1rem;
-}
-
-.hamburger-menu a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    display: block;
 }
 
 /* Header */
@@ -534,17 +406,7 @@ html, body {
 }
 
 /* Header Styles */
-.header-area {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    height: 80px;
-    background-color: var(--color-primary);
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    transition: all 0.5s ease;
-}
+
 
 .header-area .main-nav {
     min-height: 80px;
@@ -591,105 +453,6 @@ html, body {
 .header-area .nav li a:hover,
 .header-area .nav li a.active {
     color: var(--color-accent);
-}
-
-.header-area .nav li.submenu {
-    position: relative;
-}
-
-.header-area .nav li.submenu ul {
-    position: absolute;
-    left: 0;
-    top: 100%;
-    background-color: var(--color-primary);
-    min-width: 200px;
-    padding: 15px 0;
-    border-radius: 5px;
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-    transform: translateY(15px);
-    z-index: 1;
-}
-
-.header-area .nav li.submenu:hover ul {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.header-area .nav li.submenu ul li {
-    padding: 0;
-    margin: 0;
-    display: block;
-}
-
-.header-area .nav li.submenu ul li a {
-    padding: 8px 20px;
-    color: white;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 14px;
-}
-
-.header-area .nav li.submenu ul li a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: var(--color-accent);
-}
-
-.header-area .menu-trigger {
-    display: none;
-    cursor: pointer;
-    color: white;
-    font-size: 16px;
-}
-
-/* Estilos del icono hamburguesa */
-.hamburger-icon {
-    width: 25px;
-    height: 20px;
-    position: relative;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-.hamburger-icon span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background: white;
-    border-radius: 3px;
-    opacity: 1;
-    left: 0;
-    transition: .25s ease-in-out;
-}
-
-.hamburger-icon span:nth-child(1) {
-    top: 0px;
-}
-
-.hamburger-icon span:nth-child(2) {
-    top: 8px;
-}
-
-.hamburger-icon span:nth-child(3) {
-    top: 16px;
-}
-
-/* Animación del icono hamburguesa al hacer clic */
-.header-area .menu-trigger.active .hamburger-icon span:nth-child(1) {
-    top: 8px;
-    transform: rotate(45deg);
-}
-
-.header-area .menu-trigger.active .hamburger-icon span:nth-child(2) {
-    opacity: 0;
-}
-
-.header-area .menu-trigger.active .hamburger-icon span:nth-child(3) {
-    top: 8px;
-    transform: rotate(-45deg);
 }
 
 /* Mejoras adicionales para el menú móvil */
