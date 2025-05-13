@@ -1,6 +1,6 @@
 /* Mantener los colores personalizados */
 :root {
-    --color-primary: #850e35;
+    --color-primary: #ce4d78;
     --color-secondary: #ee6983;
     --color-accent: #ffc4c4;
     --color-background: #fff5e4;
@@ -138,6 +138,30 @@
     .navbar-nav .nav-link {
         padding: 12px 20px;
     }
+
+    /* Fix for logo vertical alignment on mobile */
+    .navbar-brand.logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 50%;
+        margin-top: -20px; /* Half of logo font size */
+        z-index: 1030;
+    }
+    
+    /* Ensure navbar has correct height */
+    .navbar {
+        min-height: 60px;
+        position: fixed;
+        width: 100%;
+        top: 0;
+    }
+    
+    /* Fix container positioning */
+    .navbar > .container {
+        position: relative;
+        height: 60px; /* Match navbar height */
+    }
 }
 
 /* Eliminar estilos antiguos que causan conflictos */
@@ -183,3 +207,97 @@
         margin-bottom: 40px;
     }
 }
+
+/* Wave Animation */
+@keyframes move_wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+
+@keyframes move-wave {
+    0% {
+        transform: translateX(0) translateZ(0) scaleY(1)
+    }
+    50% {
+        transform: translateX(-25%) translateZ(0) scaleY(0.55)
+    }
+    100% {
+        transform: translateX(-50%) translateZ(0) scaleY(1)
+    }
+}
+
+.waveWrapper {
+    overflow: hidden;
+    position: relative;
+    height: 150px; /* Adjust this height as needed */
+    width: 100%;
+    margin-top: -2px;
+}
+
+.waveWrapperInner {
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+    bottom: -1px;
+    background-image: linear-gradient(to top, var(--color-primary) 20%, var(--color-secondary) 80%);
+}
+
+.bgTop {
+    z-index: 15;
+    opacity: 0.5;
+}
+
+.bgMiddle {
+    z-index: 10;
+    opacity: 0.75;
+}
+
+.bgBottom {
+    z-index: 5;
+}
+
+.wave {
+    position: absolute;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background-repeat: repeat no-repeat;
+    background-position: 0 bottom;
+    transform-origin: center bottom;
+}
+
+.waveTop {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveTop {
+    animation: move-wave 3s;
+    -webkit-animation: move-wave 3s;
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
+}
+
+.waveMiddle {
+    background-size: 50% 120px;
+}
+
+.waveAnimation .waveMiddle {
+    animation: move_wave 10s linear infinite;
+}
+
+.waveBottom {
+    background-size: 50% 100px;
+}
+
+.waveAnimation .waveBottom {
+    animation: move_wave 15s linear infinite;
+}
+
