@@ -64,6 +64,122 @@
     padding-top: 4rem;
     padding-bottom: 2rem;
     color: white;
+    position: relative;
+}
+
+/* Footer Logo */
+.footer-logo {
+    font-family: 'Playfair Display', serif;
+    color: white;
+    font-size: 2.2rem;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+.footer-logo:hover {
+    color: var(--color-accent);
+    transform: scale(1.05);
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icons a {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: white;
+    color: var(--color-primary);
+    transform: translateY(-3px);
+}
+
+/* Footer Links */
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links li a {
+    display: inline-block;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+    transition: all 0.3s;
+    padding-left: 0;
+}
+
+.footer-links li a i {
+    margin-right: 8px;
+    font-size: 0.8rem;
+    transition: transform 0.3s;
+}
+
+.footer-links li a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+    padding-left: 5px;
+}
+
+.footer-links li a:hover i {
+    transform: translateX(3px);
+}
+
+/* Contact List */
+.contact-list li {
+    display: flex;
+    margin-bottom: 15px;
+    align-items: flex-start;
+}
+
+.contact-list li i {
+    margin-right: 12px;
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    width: 20px;
+    text-align: center;
+    margin-top: 3px;
+}
+
+.contact-list li a {
+    color: white;
+    transition: all 0.3s;
+}
+
+.contact-list li a:hover {
+    color: var(--color-accent);
+    text-decoration: none;
+}
+
+
+/* Copyright Section */
+.copyright {
+    background-color: var(--color-primary);
+    padding: 1.5rem 0 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.copyright .fa-heart {
+    color: var(--color-accent);
+    font-size: 0.8rem;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
 /* Productos */
@@ -206,6 +322,28 @@
         margin-top: 20px;
         margin-bottom: 40px;
     }
+    
+    .footer-col {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+    
+    .contact-list li, .footer-links li {
+        justify-content: center;
+    }
+    
+    .copyright p {
+        text-align: center !important;
+    }
+    
+    .back-to-top {
+        right: 20px;
+        bottom: 20px;
+    }
 }
 
 /* Wave Animation */
@@ -299,5 +437,105 @@
 
 .waveAnimation .waveBottom {
     animation: move_wave 15s linear infinite;
+}
+
+/* Hamburger Menu Animation - based on ThemeSine template */
+
+/* Customizing the hamburger menu icon */
+.navbar-toggler {
+    position: relative;
+    border: 1px solid var(--color-accent);
+    background-color: transparent;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Creating the three lines of the hamburger icon */
+.navbar-toggler span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 25px;
+    background: white;
+    border-radius: 5px;
+    left: 50%;
+    margin-left: -12.5px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler span:nth-child(1) {
+    top: 12px;
+}
+
+.navbar-toggler span:nth-child(2) {
+    top: 20px;
+}
+
+.navbar-toggler span:nth-child(3) {
+    top: 28px;
+}
+
+/* Animation when burger transforms to X */
+.navbar-toggler[aria-expanded="true"] span:nth-child(1) {
+    top: 20px;
+    transform: rotate(45deg);
+}
+
+.navbar-toggler[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler[aria-expanded="true"] span:nth-child(3) {
+    top: 20px;
+    transform: rotate(-45deg);
+}
+
+/* Hover effect */
+.navbar-toggler:hover {
+    border-color: white;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+/* Animación de aparición desde la derecha */
+@keyframes slideInFromRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.slide-in-right {
+    opacity: 0;
+}
+
+.slide-in-right.animate {
+    animation: slideInFromRight 0.8s ease forwards;
+}
+
+/* Retraso en cascada para elementos múltiples */
+.slide-delay-1 {
+    animation-delay: 0.2s;
+}
+
+.slide-delay-2 {
+    animation-delay: 0.4s;
+}
+
+.slide-delay-3 {
+    animation-delay: 0.6s;
 }
 
