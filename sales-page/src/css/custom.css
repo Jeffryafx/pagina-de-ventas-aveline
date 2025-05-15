@@ -261,7 +261,7 @@
         left: 50%;
         transform: translateX(-50%);
         top: 50%;
-        margin-top: -20px; /* Half of logo font size */
+        margin-top: -25px; /* Half of logo font size */
         z-index: 1030;
     }
     
