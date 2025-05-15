@@ -14,22 +14,6 @@ window.addEventListener('load', function() {
 
 // Inicializar el carrusel cuando el DOM esté cargado
 document.addEventListener('DOMContentLoaded', function() {
-    // Inicializar el carrusel
-    const headerCarousel = document.getElementById('header-carousel');
-    if (headerCarousel) {
-        // Configurar el carrusel de Bootstrap con auto-deslizamiento
-        const carousel = new bootstrap.Carousel(headerCarousel, {
-            interval: 4000,  // Tiempo entre slides (4 segundos)
-            wrap: true,      // Vuelve al principio cuando termina
-            keyboard: true,  // Permite navegación con teclado
-            pause: false,    // No pausar en hover para asegurar deslizamiento continuo
-            ride: 'carousel' // Inicia automáticamente
-        });
-        
-        // Añadir la clase carousel-fade para el efecto de transición
-        headerCarousel.classList.add('carousel-fade');
-    }
-    
     // Handle all navigation links, not just catalog buttons
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
     
@@ -188,38 +172,14 @@ document.addEventListener('DOMContentLoaded', function() {
     };
     window.addEventListener('resize', appHeight);
     appHeight();
-});
-
-// Modificar la función de desplazamiento para mejorar experiencia en móvil
-document.querySelectorAll('.btn-solid-lg[href^="#"], .fixed-btn[href^="#"]').forEach(button => {
-    button.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        // Obtener el ID del elemento destino
-        const targetId = this.getAttribute('href');
-        const targetElement = document.getElementById(targetId.substring(1));
-        
-        if (targetElement) {
-            // En móvil hacer scroll con más offset para mejor visualización
-            const isMobile = window.innerWidth < 768;
-            const navbar = document.querySelector('.navbar');
-            const navHeight = navbar ? navbar.offsetHeight : 70;
-            
-            // Añadir offset adicional en móviles
-            const extraOffset = isMobile ? 50 : 20;
-            const yOffset = -navHeight - extraOffset;
-            
-            // Calcular posición
-            const y = targetElement.getBoundingClientRect().top + 
-                     window.pageYOffset + yOffset;
-            
-            // Hacer scroll con animación
-            window.scrollTo({
-                top: y,
-                behavior: 'smooth'
-            });
-        }
-    });
+    
+    // Activar las animaciones del header
+    setTimeout(function() {
+        const animatedElements = document.querySelectorAll('.slide-in-right');
+        animatedElements.forEach(element => {
+            element.classList.add('animate');
+        });
+    }, 300);
 });
 
 // Manejar botones de compra
